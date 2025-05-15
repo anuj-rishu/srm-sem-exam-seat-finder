@@ -92,7 +92,7 @@ Feel free to submit issues, pull requests, or suggestions. Contributions are wel
 
 ## 📜 License
 
-This project is open-source and available under the MIT License.
+This project is open-source and available under the CC BY-NC-ND 4.0 License.
 
 ## 👨‍💻 Author
 
