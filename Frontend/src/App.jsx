@@ -72,6 +72,43 @@ function App() {
         </div>
       </header>
 
+            
+            <div className="mx-auto w-full px-3 sm:px-0 max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mt-4 sm:mt-6">
+              <div className="mb-4 sm:mb-5 bg-blue-50 border-2 border-blue-400 p-2.5 xs:p-3 sm:p-4 rounded-lg sm:rounded-xl text-blue-800 text-xs xs:text-sm sm:text-base relative overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+                {/* NEW badge */}
+                <div className="absolute -right-7 top-2 bg-red-500 text-white text-[10px] xs:text-xs py-0.5 px-8 transform rotate-45 font-bold shadow-sm">
+                  NEW!
+                </div>
+                
+                <div className="flex flex-col xs:flex-row items-center xs:items-start gap-2 xs:gap-0">
+                  {/* Telegram Icon - Centered on mobile, left-aligned on larger screens */}
+                  <div className="flex justify-center xs:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 xs:h-5 xs:w-5 sm:h-6 sm:w-6 xs:mr-2 xs:mt-0.5 flex-shrink-0 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-4.486-10-10-10 4.486-10 10-10zm-2.5 13.5l7.5-3.5-7.5-3.5v7z"/>
+                    </svg>
+                  </div>
+                  
+                  <div className="text-center xs:text-left">
+                    {/* Heading - Larger and centered on mobile */}
+                    <p className="font-bold text-blue-700 text-sm xs:text-sm sm:text-base md:text-lg mb-1">
+                      🎓 Get Instant Exam Seat Alerts!
+                    </p>
+                    
+                    {/* Content - Simplified for mobile */}
+                    <p className="text-xs xs:text-xs sm:text-sm">
+                      <span className="hidden xs:inline">No need to keep checking the website! </span>
+                      Use our 
+                      <a href="https://t.me/srm_academia_bot" target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 hover:underline ml-1">
+                        SRM Academia Telegram Bot
+                      </a>
+                      <span className="hidden xs:inline"> for instant seat allocation notifications!</span>
+                      <span className="xs:hidden"> for alerts!</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
       {/* Main Content */}
       <main className="flex-grow flex items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8">
         <div className="bg-white shadow-xl sm:shadow-2xl rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl border border-gray-200 transition-all duration-300 hover:shadow-xl">
