@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  display: block;
+  width: 100%;
+}
+
+.react-datepicker {
+  font-size: 0.9rem !important;
+}
+
+.react-datepicker__header {
+  padding-top: 0.8rem;
+}
+
+.react-datepicker__month {
+  margin: 0.4rem;
+}
+
+.react-datepicker__day-name, 
+.react-datepicker__day {
+  width: 1.9rem;
+  line-height: 1.9rem;
+  margin: 0.166rem;
+}
+
+@media (max-width: 480px) {
+  .react-datepicker__day-name, 
+  .react-datepicker__day {
+    width: 1.7rem;
+    line-height: 1.7rem;
+    margin: 0.1rem;
+  }
+}
+
+.react-datepicker__current-month {
+  font-size: 1rem;
+}
+
+.react-datepicker__navigation {
+  top: 1rem;
+}
+
+.react-datepicker__day--selected {
+  background-color: #3b82f6 !important;
+}
