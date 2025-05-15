@@ -19,13 +19,18 @@ function App() {
     try {
       // Format the date as DD/MM/YYYY
       const formattedDate = selectedDate
-        ? `${String(selectedDate.getDate()).padStart(2, '0')}/${String(selectedDate.getMonth() + 1).padStart(2, '0')}/${selectedDate.getFullYear()}`
+        ? `${String(selectedDate.getDate()).padStart(2, "0")}/${String(
+            selectedDate.getMonth() + 1
+          ).padStart(2, "0")}/${selectedDate.getFullYear()}`
         : "";
 
-      const response = await axios.post("https://srm-sem-exam-seat-finder.vercel.app/api/get-seat", {
-        date: formattedDate,
-        registerNumber,
-      });
+      const response = await axios.post(
+        "https://srm-sem-exam-seat-finder.vercel.app/api/get-seat",
+        {
+          date: formattedDate,
+          registerNumber,
+        }
+      );
       setResult(response.data.seatDetails);
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
@@ -71,20 +76,34 @@ function App() {
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-indigo-800">
             Find Your Exam Seat
           </h2>
-          
+
           {/* Important Notice Alert */}
           <div className="mb-5 bg-amber-50 border border-amber-300 p-3 sm:p-4 rounded-lg sm:rounded-xl text-amber-800 text-sm sm:text-base">
             <div className="flex items-start">
-              <svg className="h-5 w-5 sm:h-6 sm:w-6 mr-2 mt-0.5 flex-shrink-0 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              <svg
+                className="h-5 w-5 sm:h-6 sm:w-6 mr-2 mt-0.5 flex-shrink-0 text-amber-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
               </svg>
               <div>
                 <p className="font-medium">Important Notice:</p>
-                <p>Seat information will only be updated within 24 hours before your examination. If your seat details are not available, please check again closer to your exam date.</p>
+                <p>
+                  Seat information will only be updated within 24 hours before
+                  your examination. If your seat details are not available,
+                  please check again closer to your exam date.
+                </p>
               </div>
             </div>
           </div>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
             <div className="transition-all duration-300 hover:transform hover:scale-[1.01]">
               <label className="block font-medium text-gray-700 mb-1 sm:mb-2 text-sm sm:text-base">
@@ -200,7 +219,14 @@ function App() {
 
                 <div className="bg-white p-2 sm:p-3 rounded-md sm:rounded-lg shadow-sm">
                   <p className="text-xs sm:text-sm text-gray-500">Session</p>
-                  <p className="font-semibold">{result.session}</p>
+                  <p className="font-semibold">
+                    {result.session}
+                    {result.session.includes("AF")
+                      ? " (2-5 PM)"
+                      : result.session.includes("FN")
+                      ? " (10-1 PM)"
+                      : ""}
+                  </p>
                 </div>
                 <div className="bg-white p-2 sm:p-3 rounded-md sm:rounded-lg shadow-sm sm:col-span-2">
                   <p className="text-xs sm:text-sm text-gray-500">Venue</p>
