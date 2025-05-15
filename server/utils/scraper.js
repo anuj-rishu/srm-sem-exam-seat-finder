@@ -21,7 +21,6 @@ exports.fetchSeatInfo = async (url, venue, date, session, registerNumber) => {
     },
   });
 
-  // ...existing code...
   const $ = cheerio.load(response.data);
   let found = null;
 
