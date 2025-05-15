@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -221,7 +223,7 @@ function App() {
                   <p className="text-xs sm:text-sm text-gray-500">Session</p>
                   <p className="font-semibold">
                     {result.session}
-                    {result.session.includes("AF")
+                    {result.session.includes("AN")
                       ? " (2-5 PM)"
                       : result.session.includes("FN")
                       ? " (10-1 PM)"
@@ -285,6 +287,10 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Vercel Analytics */}
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
