@@ -7,7 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [registerNumber, setRegisterNumber] = useState("");
+  const [registerNumber, setRegisterNumber] = useState("")
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
