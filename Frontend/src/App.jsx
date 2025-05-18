@@ -115,9 +115,7 @@ function App() {
               <h3 className="font-bold text-blue-900 text-base sm:text-xl mb-2 flex items-center">
                 <span className="bg-gradient-to-r from-blue-600 via-blue-600 to-indigo-600 text-transparent bg-clip-text">
                   🎓 SRM Academia Bot{" "}
-                  <span className="text-xs font-normal text-blue-600 ml-2 bg-blue-100 px-2 py-0.5 rounded-full">
-                    5000+ Students
-                  </span>
+                  
                 </span>
               </h3>
 
