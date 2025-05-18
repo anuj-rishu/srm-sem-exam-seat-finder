@@ -74,55 +74,68 @@ function App() {
       </header>
 
       <div className="mx-auto w-full px-3 sm:px-0 max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mt-4 sm:mt-6">
-        <div className="mb-4 sm:mb-5 bg-blue-50 border-2 border-blue-500 p-2.5 xs:p-3 sm:p-4 rounded-lg sm:rounded-xl text-blue-800 text-xs xs:text-sm sm:text-base relative overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 animate-fadeIn">
-          {/* Animated gradient border */}
+        <div className="mb-4 sm:mb-5 bg-gradient-to-br from-blue-100 to-indigo-200 border-2 border-blue-300 p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative animate-fadeIn">
           <div
-            className="absolute inset-0 bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-400 opacity-50 animate-pulse"
-            style={{ mixBlendMode: "overlay" }}
+            className="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-500 opacity-50"
+            style={{ height: "4px", top: 0 }}
           ></div>
 
-          <div className="absolute -right-7 top-2 bg-gradient-to-r from-red-500 to-pink-600 text-white text-[10px] xs:text-xs py-0.5 px-8 transform rotate-45 font-bold shadow-sm animate-pulse">
-            NEW!
+          <div className="absolute -right-9 top-3 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs py-0.5 px-10 transform rotate-45 font-medium shadow-md animate-pulse">
+            NEW
           </div>
 
-          <div className="flex flex-col xs:flex-row items-center xs:items-start gap-2 xs:gap-0 relative z-10">
-            <div
-              className="flex justify-center xs:block animate-bounce"
-              style={{ animationDuration: "2s" }}
+          <div className="absolute bottom-2 right-2 opacity-10">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-24 w-24 text-indigo-800"
+              viewBox="0 0 20 20"
+              fill="currentColor"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 xs:h-5 xs:w-5 sm:h-6 sm:w-6 xs:mr-2 xs:mt-0.5 flex-shrink-0 text-blue-600"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-4.486-10-10-10 4.486-10 10-10zm-2.5 13.5l7.5-3.5-7.5-3.5v7z" />
-              </svg>
+              <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838l-2.328.996.002 1.069c0 .358.186.687.465.874l2.707 1.789a1 1 0 001.676-.676l.216-4.764a1 1 0 10-1.99-.18l-.058 1.289-1.553-1.026 3.625-1.55 7.18 3.078a1 1 0 000-1.84l-7-3z" />
+              <path d="M11.375 13.658c-.092.096-.183.202-.24.317l-.53 1.587a1 1 0 01-.903.796H8.03a1 1 0 01-.992-.96l-.195-3.913a1 1 0 01.145-.597l.49-.97a1 1 0 01.376-.484l.5-.313A1 1 0 118.87 11.65l-.276.173-.144.284-.192 3.83h.604l.45-1.345a1 1 0 01.271-.415 3.177 3.177 0 01.595-.401c.326-.168.761-.35 1.25-.519 1.377-.474 2.576-.51 2.64-.511a1 1 0 11.017 1.998c-.013 0-1.038.034-2.14.404-.39.132-.742.283-1.01.417z" />
+            </svg>
+          </div>
+
+          <div className="flex items-start gap-3 sm:gap-4">
+            {/* Animated icon */}
+            <div className="mt-0.5 hidden sm:block">
+              <div className="bg-blue-200 p-3 rounded-full shadow-inner transform hover:scale-110 transition-transform duration-300">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-blue-700"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-4.486-10-10-10 4.486-10 10-10zm-2.5 13.5l7.5-3.5-7.5-3.5v7z" />
+                </svg>
+              </div>
             </div>
 
-            <div className="text-center xs:text-left">
-              <p className="font-bold text-blue-800 text-sm xs:text-sm sm:text-base md:text-lg mb-1 relative inline-flex">
-                <span className="animate-highlight bg-gradient-to-r from-blue-100 to-transparent bg-[length:200%_100%] bg-no-repeat p-1 rounded">
-                  🎓 Get Instant Exam Seat Alerts!
+            <div className="flex-1 z-10">
+              <h3 className="font-bold text-blue-900 text-base sm:text-xl mb-2 flex items-center">
+                <span className="bg-gradient-to-r from-blue-600 via-blue-600 to-indigo-600 text-transparent bg-clip-text">
+                  🎓 SRM Academia Bot{" "}
+                  <span className="text-xs font-normal text-blue-600 ml-2 bg-blue-100 px-2 py-0.5 rounded-full">
+                    5000+ Students
+                  </span>
                 </span>
-              </p>
+              </h3>
 
-              {/* Content with enhanced link */}
-              <p className="text-xs xs:text-xs sm:text-sm">
-                <span className="hidden xs:inline">
-                  No need to keep checking the website!{" "}
+              <p className="text-sm text-gray-800 mb-3 font-medium">
+                <span className="hidden sm:inline">
+                  📱 Never miss important updates!{" "}
                 </span>
-                Use our
+                Join our exclusive
                 <a
                   href="https://t.me/srm_academia_bot"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-blue-700 hover:text-blue-500 hover:underline ml-1 inline-flex items-center group"
+                  className="font-bold text-blue-600 hover:text-blue-500 hover:underline mx-1 inline-flex items-center group"
                 >
-                  SRM Academia Telegram Bot
+                  Telegram Bot
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-3 w-3 ml-0.5 transform transition-transform group-hover:translate-x-0.5"
+                    className="h-3 w-3 ml-0.5 transform transition-transform group-hover:translate-x-1"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -135,12 +148,57 @@ function App() {
                     />
                   </svg>
                 </a>
-                <span className="hidden xs:inline">
-                  {" "}
-                  for instant seat allocation notifications!
-                </span>
-                <span className="xs:hidden"> for alerts!</span>
+                for instant SRM updates:
               </p>
+
+              <div className="mb-3">
+                <div className="flex flex-col space-y-2">
+                  <div className="flex items-center text-sm text-gray-800 bg-white bg-opacity-50 p-1.5 rounded-lg">
+                    <span className="mr-2 text-green-500 flex-shrink-0">✓</span>
+                    <span>
+                      🪑 <b>Instant exam seat notifications</b>
+                    </span>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-800 bg-white bg-opacity-50 p-1.5 rounded-lg">
+                    <span className="mr-2 text-green-500 flex-shrink-0">✓</span>
+                    <span>
+                      📊{" "}
+                      <b>Notification of Sem exam result with calculted CGPA</b>
+                    </span>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-800 bg-white bg-opacity-50 p-1.5 rounded-lg">
+                    <span className="mr-2 text-green-500 flex-shrink-0">✓</span>
+                    <span>
+                      🔔 <b>Academic alerts & many more</b>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-3">
+                <a
+                  href="https://t.me/srm_academia_bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-2.5 px-5 rounded-lg text-sm hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 animate-subtle-pulse"
+                >
+                  Join 5000+ Students
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 ml-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
