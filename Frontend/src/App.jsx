@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import InsiderCommunityBanner from "./components/InsiderCommunityBanner";
+// import InsiderCommunityBanner from "./components/InsiderCommunityBanner";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -72,8 +72,6 @@ function App() {
           </div>
         </div>
       </header>
-
-       <InsiderCommunityBanner />
 
       <div className="mx-auto w-full px-3 sm:px-0 max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mt-4 sm:mt-6">
         <div className="mb-4 sm:mb-5 bg-blue-50 border-2 border-blue-500 p-2.5 xs:p-3 sm:p-4 rounded-lg sm:rounded-xl text-blue-800 text-xs xs:text-sm sm:text-base relative overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 animate-fadeIn">
@@ -147,7 +145,6 @@ function App() {
           </div>
         </div>
       </div>
-
 
       {/* Main Content */}
       <main className="flex-grow flex items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8">
@@ -326,7 +323,7 @@ function App() {
                 © {new Date().getFullYear()} SRMIST Seat Finder
               </p>
             </div>
-                        <div className="text-center mb-2 md:mb-0 md:text-left">
+            <div className="text-center mb-2 md:mb-0 md:text-left">
               <p className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text">
                 Part of SRM Insider Community
               </p>
