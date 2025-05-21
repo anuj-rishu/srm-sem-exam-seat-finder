@@ -1,100 +1,16 @@
 @import "tailwindcss";
 
-
-.react-datepicker-wrapper,
-.react-datepicker__input-container {
-  display: block;
-  width: 100%;
+.pulse-animation {
+  animation: pulse 2s infinite;
 }
-
-.react-datepicker {
-  font-size: 0.9rem !important;
-}
-
-.react-datepicker__header {
-  padding-top: 0.8rem;
-}
-
-.react-datepicker__month {
-  margin: 0.4rem;
-}
-
-.react-datepicker__day-name, 
-.react-datepicker__day {
-  width: 1.9rem;
-  line-height: 1.9rem;
-  margin: 0.166rem;
-}
-
-@media (max-width: 480px) {
-  .react-datepicker__day-name, 
-  .react-datepicker__day {
-    width: 1.7rem;
-    line-height: 1.7rem;
-    margin: 0.1rem;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
-
-.react-datepicker__current-month {
-  font-size: 1rem;
-}
-
-.react-datepicker__navigation {
-  top: 1rem;
-}
-
-.react-datepicker__day--selected {
-  background-color: #3b82f6 !important;
-}
-
- @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes highlight {
-          0% {
-            background-position: -100% 0;
-          }
-          50% {
-            background-position: 200% 0;
-          }
-          100% {
-            background-position: -100% 0;
-          }
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .animate-highlight {
-          animation: highlight 3s ease-in-out infinite;
-        }
-
-
-                /* Add to your CSS file or Tailwind config */
-        @keyframes subtle-pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.03); }
-        }
-        
-        .animate-subtle-pulse {
-          animation: subtle-pulse 2s infinite;
-        }
-        
-        @keyframes fadeIn {
-          0% { opacity: 0.7; }
-          100% { opacity: 1; }
-        }
-        
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-in-out;
-        }
-        
