@@ -81,7 +81,7 @@ function App() {
               🚀 SRM ACADEMIA BOT IS BACK ONLINE!
             </h2> */}
                        <h6 className="text-sm md:text-lg font-bold">
-              ⚠️ 70k+ users in 4 days! We've hit Vercel's free tier limit—site may be down from 24 May.<br />
+              ⚠️ 70k+ page view in 4 days! We've hit Vercel's free tier limit—site may be down from 24 May.<br />
               📌Join our Telegram bot for seat alerts.
             </h6>
             <button 
