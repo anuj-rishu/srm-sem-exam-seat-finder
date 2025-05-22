@@ -74,16 +74,7 @@ function App() {
         </div>
       </header>
 
-{/*            {showBanner && (
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 shadow-lg relative">
-          <div className="container mx-auto text-center px-8"> */}
-            {/* <h2 className="text-xl md:text-2xl font-bold">
-              🚀 SRM ACADEMIA BOT IS BACK ONLINE!
-            </h2> */}
-{/*                        <h6 className="text-sm md:text-lg font-bold">
-              ⚠️ 70k+ page view in 4 days! We've hit Vercel's free tier limit—site may be down from 24 May.<br />
-              📌Join our Telegram bot for seat alerts.
-            </h6> */}
+
             <button 
               onClick={() => setShowBanner(false)}
               className="absolute top-2 right-4 md:top-3 md:right-6 bg-white/20 hover:bg-white/30 text-white p-1.5 rounded-full transition-all focus:outline-none"
