@@ -74,9 +74,9 @@ function App() {
         </div>
       </header>
 
-           {showBanner && (
+{/*            {showBanner && (
         <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 shadow-lg relative">
-          <div className="container mx-auto text-center px-8">
+          <div className="container mx-auto text-center px-8"> */}
             {/* <h2 className="text-xl md:text-2xl font-bold">
               🚀 SRM ACADEMIA BOT IS BACK ONLINE!
             </h2> */}
