@@ -85,7 +85,7 @@ function App() {
               </svg>
             </button>
           </div>
-        </div>
+        // </div>
       )}
       {/* Main Content */}
       <main className="flex-grow container mx-auto px-4 md:px-6 py-6 md:py-12 flex flex-col items-center">
