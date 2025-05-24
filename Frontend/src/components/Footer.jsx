@@ -16,7 +16,7 @@ const Footer = () => {
               Part of SRM Insider Community
             </p>
             <p className="text-xs text-indigo-200">
-              Founded by Anuj Rishu Tiwari
+               by - Anuj Rishu Tiwari
             </p>
           </div>
 
