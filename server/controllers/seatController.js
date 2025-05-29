@@ -9,18 +9,25 @@ exports.getSeatDetails = async (req, res) => {
   }
 
   try {
+    const searchPromises = [];
+    
     for (const session of SESSIONS) {
       for (const [venue, url] of Object.entries(VENUE_URLS)) {
-        try {
-          const seatInfo = await fetchSeatInfo(url, venue, date, session, registerNumber);
-          
-          if (seatInfo) {
-            return res.json({ success: true, seatDetails: seatInfo });
-          }
-        } catch (err) {
-          console.warn(`Failed on venue ${venue}, session ${session}: ${err.message}`);
-        }
+        searchPromises.push(
+          fetchSeatInfo(url, venue, date, session, registerNumber)
+            .then(result => result ? { result, found: true } : { found: false })
+            .catch(() => ({ found: false }))
+        );
       }
+    }
+    
+    const results = await Promise.allSettled(searchPromises);
+    const foundSeat = results
+      .filter(r => r.status === 'fulfilled' && r.value.found)
+      .map(r => r.value.result)[0];
+    
+    if (foundSeat) {
+      return res.json({ success: true, seatDetails: foundSeat });
     }
 
     return res.status(404).json({ 

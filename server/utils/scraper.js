@@ -12,43 +12,48 @@ exports.fetchSeatInfo = async (url, venue, date, session, registerNumber) => {
     hasSeatingPath ? "/seating" : ""
   }/bench/get_datewise_report.php`;
 
-  const response = await axios.post(url, formData.toString(), {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      Origin: "https://examcell.srmist.edu.in",
-      Referer: refererUrl,
-      "User-Agent": "Mozilla/5.0",
-    },
-  });
+  try {
+    const response = await axios.post(url, formData.toString(), {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Origin: "https://examcell.srmist.edu.in",
+        Referer: refererUrl,
+        "User-Agent": "Mozilla/5.0",
+      },
+      timeout: 5000,
+    });
 
-  const $ = cheerio.load(response.data);
-  let found = null;
-
-  $(".content-and-table").each((_, section) => {
-    const roomInfo = $(section)
-      .find("#datessesinfo h4")
-      .text()
-      .replace(/\s+/g, " ")
-      .trim();
-
-    $(section)
-      .find("table tr")
-      .each((_, row) => {
+    const $ = cheerio.load(response.data);
+    
+    const sections = $(".content-and-table").toArray();
+    
+    for (const section of sections) {
+      const roomInfo = $(section)
+        .find("#datessesinfo h4")
+        .text()
+        .replace(/\s+/g, " ")
+        .trim();
+      
+      const rows = $(section).find("table tr").toArray();
+      
+      for (const row of rows) {
         const cells = $(row)
           .find("td")
           .map((i, el) => $(el).text().trim())
           .get();
-
+        
         if (cells.length > 2 && cells[2] === registerNumber) {
-          found = {
+          return {
             venue,
             session,
             roomInfo,
             seatNo: cells[1],
             registerNumber: cells[2],
           };
-        } else if (cells.length > 5 && cells[5] === registerNumber) {
-          found = {
+        } 
+        
+        if (cells.length > 5 && cells[5] === registerNumber) {
+          return {
             venue,
             session,
             roomInfo,
@@ -56,8 +61,11 @@ exports.fetchSeatInfo = async (url, venue, date, session, registerNumber) => {
             registerNumber: cells[5],
           };
         }
-      });
-  });
-
-  return found;
+      }
+    }
+    
+    return null;
+  } catch (error) {
+    throw new Error(`Failed to fetch data: ${error.message}`);
+  }
 };
