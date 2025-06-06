@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 exports.VENUE_URLS = {
-  tp: "https://examcell.srmist.edu.in/tp/seating/bench/fetch_data.php",
-  tp2: "https://examcell.srmist.edu.in/tp2/bench/fetch_data.php",
-  main: "https://examcell.srmist.edu.in/main/seating/bench/fetch_data.php",
-  bio: "https://examcell.srmist.edu.in/bio/seating/bench/fetch_data.php",
-  ub: "https://examcell.srmist.edu.in/ub/seating/bench/fetch_data.php",
+  tp: process.env.VENUE_URL_TP,
+  tp2: process.env.VENUE_URL_TP2,
+  main: process.env.VENUE_URL_MAIN,
+  bio: process.env.VENUE_URL_BIO,
+  ub: process.env.VENUE_URL_UB,
 };
 
 exports.SESSIONS = ["FN", "AN"];
