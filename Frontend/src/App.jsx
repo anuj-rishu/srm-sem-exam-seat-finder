@@ -6,7 +6,7 @@ import ThankYou from "./pages/ThankYou";
 
 function App() {
   const currentDate = new Date();
-  const targetDate = new Date("2025-07-11"); 
+  const targetDate = new Date("2025-04-10"); 
   const showThankYouPage = currentDate >= targetDate;
   return (
     <>
