@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import Home from "./pages/Home";
 import ThankYou from "./pages/ThankYou";
 import Teams from "./pages/Teams";
@@ -32,8 +30,6 @@ function App() {
         <Route path="/teams" element={<Teams />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <Analytics />
-      <SpeedInsights />
     </Router>
   );
 }
