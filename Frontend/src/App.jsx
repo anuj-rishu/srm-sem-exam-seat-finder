@@ -7,7 +7,7 @@ import ComingSoon from "./pages/ComingSoon";
 
 function App() {
   const currentDate = new Date();
-  const launchDate = new Date("2025-11-12"); 
+  const launchDate = new Date("2025-11-16"); 
   const thankYouDate = new Date("2025-12-20");
   
   // Show Coming Soon page before launch date
