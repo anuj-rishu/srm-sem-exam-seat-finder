@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { recordVisit } from "../services/api";
 
 const ComingSoon = () => {
+  useEffect(() => {
+    recordVisit().catch((err) => console.error("Failed to record visit:", err));
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0C0F1B] via-[#18202e] to-[#0C0F1B] flex flex-col">
       <Header />

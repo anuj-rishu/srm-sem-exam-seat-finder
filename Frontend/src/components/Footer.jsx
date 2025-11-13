@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getVisitorStats } from "../services/api";
 
 const Footer = () => {
+  const [visitorStats, setVisitorStats] = useState({
+    totalVisitors: 0,
+    activeVisitors: 0,
+    loading: true,
+  });
+
+  useEffect(() => {
+    const fetchVisitorStats = async () => {
+      try {
+        const response = await getVisitorStats();
+        if (response.success) {
+          setVisitorStats({
+            totalVisitors: response.data.totalVisitors,
+            activeVisitors: response.data.activeVisitors,
+            loading: false,
+          });
+        }
+      } catch (error) {
+        console.error("Failed to fetch visitor stats:", error);
+        setVisitorStats((prev) => ({ ...prev, loading: false }));
+      }
+    };
+
+    fetchVisitorStats();
+
+    const interval = setInterval(fetchVisitorStats, 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <footer className="py-3 md:py-4 lg:py-5 border-t border-[#666668]/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -75,6 +105,45 @@ const Footer = () => {
             </a>
           </div>
         </div>
+
+        {!visitorStats.loading && (
+          <div className="mt-4 flex justify-center gap-4 text-xs md:text-sm text-[#666668]">
+            <div className="flex items-center">
+              <svg
+                className="h-3.5 w-3.5 md:h-4 md:w-4 text-amber-400 mr-1.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+              <span>
+                <span className="font-medium">
+                  {visitorStats.totalVisitors.toLocaleString()}
+                </span>{" "}
+                Total Visitors
+              </span>
+            </div>
+
+            <div className="flex items-center">
+              <span className="relative flex h-2.5 w-2.5 mr-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+              </span>
+              <span>
+                <span className="font-medium">
+                  {visitorStats.activeVisitors.toLocaleString()}
+                </span>{" "}
+                Online Now
+              </span>
+            </div>
+          </div>
+        )}
       </div>
     </footer>
   );

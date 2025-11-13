@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { recordVisit } from "../services/api";
 
 const ThankYou = () => {
+  useEffect(() => {
+    recordVisit().catch((err) => console.error("Failed to record visit:", err));
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#0C0F1B] via-[#18202e] to-[#0C0F1B]">
       <Header />

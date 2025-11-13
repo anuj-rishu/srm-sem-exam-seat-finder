@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
+import { recordVisit } from "../services/api";
 
 const Teams = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -11,6 +12,8 @@ const Teams = () => {
   const [selectedDomain, setSelectedDomain] = useState("all");
 
   useEffect(() => {
+    recordVisit().catch((err) => console.error("Failed to record visit:", err));
+
     const fetchTeamMembers = async () => {
       try {
         const response = await axios.get("https://sic-team-info.vercel.app/api/webadmin/admins/profile");
