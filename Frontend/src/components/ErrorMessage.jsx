@@ -4,11 +4,11 @@ const ErrorMessage = ({ error }) => {
   if (!error) return null;
 
   return (
-    <div className="mt-6 bg-red-50 border border-red-200 p-4 rounded-lg text-red-700">
+    <div className="mt-6 bg-red-500/10 border border-red-500/30 p-4 rounded-lg">
       <div className="flex">
         <div className="flex-shrink-0">
           <svg
-            className="h-5 w-5 text-red-500"
+            className="h-5 w-5 text-red-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -21,7 +21,7 @@ const ErrorMessage = ({ error }) => {
             />
           </svg>
         </div>
-        <p className="ml-3 text-sm font-medium">{error}</p>
+        <p className="ml-3 text-sm font-medium text-red-200">{error}</p>
       </div>
     </div>
   );
