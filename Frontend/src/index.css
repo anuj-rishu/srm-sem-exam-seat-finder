@@ -89,3 +89,42 @@ body {
 .animate-progress {
   animation: progress linear forwards;
 }
+
+/* Running border animation for Instagram card */
+@keyframes border-run {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.instagram-card-animated {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    rgba(37, 112, 147, 0.2) 0%,
+    rgba(24, 160, 216, 0.3) 25%,
+    rgba(37, 112, 147, 0.4) 50%,
+    rgba(24, 160, 216, 0.3) 75%,
+    rgba(37, 112, 147, 0.2) 100%
+  );
+  background-size: 200% 200%;
+  animation: border-run 3s ease infinite;
+  padding: 2px;
+  border-radius: 0.75rem;
+}
+
+.instagram-card-content {
+  background: linear-gradient(
+    to right,
+    rgba(37, 112, 147, 0.1),
+    rgba(24, 160, 216, 0.1),
+    rgba(37, 112, 147, 0.1)
+  );
+  border-radius: 0.7rem;
+}
