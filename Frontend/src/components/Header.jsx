@@ -60,6 +60,28 @@ const Header = () => {
               </svg>
             </a>
 
+            <a
+              href="https://cgpa-cal.srminsider.live"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex items-center text-white px-3 py-2 text-sm font-medium transition-all hover:text-[#18a0d8] group"
+            >
+              CGPA Cal
+              <svg
+                className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
+
             <button
               className="text-white p-2 rounded-lg hover:bg-[#666668]/20 transition-all md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -119,6 +141,27 @@ const Header = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://cgpa-cal.srminsider.live"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white px-4 py-2 font-medium text-center transition-all hover:text-[#18a0d8] flex items-center justify-center group"
+              >
+                CGPA Cal
+                <svg
+                  className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
                   <path
                     strokeLinecap="round"
