@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -12,6 +12,19 @@ const SeatFinderForm = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const resultCardRef = useRef(null);
+
+  // Auto-scroll to result card when result is available
+  useEffect(() => {
+    if (result && resultCardRef.current) {
+      setTimeout(() => {
+        resultCardRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 100);
+    }
+  }, [result]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +40,7 @@ const SeatFinderForm = () => {
         : "";
 
       const response = await axios.post(
-        "https://srm-sem-exam-seat-finder-1bn6.vercel.app/api/get-seat",
+        "http://localhost:9000/api/get-seat",
         {
           date: formattedDate,
           registerNumber,
@@ -199,7 +212,9 @@ const SeatFinderForm = () => {
         <ErrorMessage error={error} />
       </div>
 
-      <ResultCard result={result} />
+      <div ref={resultCardRef}>
+        <ResultCard result={result} />
+      </div>
     </div>
   );
 };
