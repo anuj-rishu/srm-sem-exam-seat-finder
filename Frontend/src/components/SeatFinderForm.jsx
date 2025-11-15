@@ -27,7 +27,7 @@ const SeatFinderForm = () => {
         : "";
 
       const response = await axios.post(
-        "https://anujrishu3-bca26b2ee204.herokuapp.com/api/get-seat",
+        "https://srm-sem-exam-seat-finder-1bn6.vercel.app/api/get-seat",
         {
           date: formattedDate,
           registerNumber,
