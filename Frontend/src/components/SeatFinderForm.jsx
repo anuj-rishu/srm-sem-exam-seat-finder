@@ -46,7 +46,7 @@ const SeatFinderForm = () => {
           registerNumber,
         }
       );
-      setResult(response.data.seatDetails);
+      setResult({ ...response.data.seatDetails, examDate: formattedDate });
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
     } finally {
