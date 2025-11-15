@@ -24,24 +24,26 @@ exports.fetchSeatInfo = async (url, venue, date, session, registerNumber) => {
     });
 
     const $ = cheerio.load(response.data);
-    
-    const sections = $(".content-and-table").toArray();
-    
-    for (const section of sections) {
-      const roomInfo = $(section)
-        .find("#datessesinfo h4")
+
+    const tables = $("table#maintable").toArray();
+
+    for (const table of tables) {
+      const roomInfo = $(table)
+        .prevAll("div#datessesinfo")
+        .first()
+        .find("h4")
         .text()
         .replace(/\s+/g, " ")
         .trim();
-      
-      const rows = $(section).find("table tr").toArray();
-      
+
+      const rows = $(table).find("tr").toArray();
+
       for (const row of rows) {
         const cells = $(row)
           .find("td")
           .map((i, el) => $(el).text().trim())
           .get();
-        
+
         if (cells.length > 2 && cells[2] === registerNumber) {
           return {
             venue,
@@ -50,8 +52,8 @@ exports.fetchSeatInfo = async (url, venue, date, session, registerNumber) => {
             seatNo: cells[1],
             registerNumber: cells[2],
           };
-        } 
-        
+        }
+
         if (cells.length > 5 && cells[5] === registerNumber) {
           return {
             venue,
@@ -63,7 +65,7 @@ exports.fetchSeatInfo = async (url, venue, date, session, registerNumber) => {
         }
       }
     }
-    
+
     return null;
   } catch (error) {
     throw new Error(`Failed to fetch data: ${error.message}`);
