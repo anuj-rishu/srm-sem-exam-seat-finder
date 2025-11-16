@@ -128,3 +128,16 @@ body {
   );
   border-radius: 0.7rem;
 }
+@keyframes scroll-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-rtl {
+  display: inline-block;
+  animation: scroll-rtl 20s linear infinite;
+}
