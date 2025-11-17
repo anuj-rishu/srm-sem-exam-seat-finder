@@ -70,4 +70,4 @@ exports.fetchSeatInfo = async (url, venue, date, session, registerNumber) => {
   } catch (error) {
     throw new Error(`Failed to fetch data: ${error.message}`);
   }
-};
+}
