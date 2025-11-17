@@ -6,6 +6,7 @@ exports.VENUE_URLS = {
   main: process.env.VENUE_URL_MAIN,
   bio: process.env.VENUE_URL_BIO,
   ub: process.env.VENUE_URL_UB,
+  fshet: process.env.VENUE_URL_FSHET,
 };
 
 exports.SESSIONS = ["FN", "AN"];
