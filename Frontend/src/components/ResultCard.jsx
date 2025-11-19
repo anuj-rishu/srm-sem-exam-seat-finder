@@ -22,8 +22,7 @@ const ResultCard = ({ result }) => {
       `Seat No: ${result.seatNo}\n` +
       `Room: ${roomNumber}\n` +
       `Date: ${examDate}\n` +
-      `Session: ${result.session}${sessionTime}\n` +
-      `Venue: ${result.venue.toUpperCase()}\n\n` +
+      `Session: ${result.session}${sessionTime}\n\n` +
       `Good luck with your exam!\n\n` +
       `_Powered by SRM Insider Community_`;
 
@@ -73,7 +72,7 @@ const ResultCard = ({ result }) => {
         </div>
         <div className="bg-[#0C0F1B] p-3 sm:p-4 rounded-lg border border-[#666668]/20">
           <p className="text-xs text-[#666668] uppercase font-medium mb-1">
-            Room Info
+            Room Info / Venue
           </p>
           <p className="font-semibold text-white text-base sm:text-lg break-words">
             {result.roomInfo.includes("ROOM NO:")
@@ -89,7 +88,7 @@ const ResultCard = ({ result }) => {
             {result.examDate || "N/A"}
           </p>
         </div>
-        <div className="bg-[#0C0F1B] p-3 sm:p-4 rounded-lg border border-[#666668]/20">
+        <div className="bg-[#0C0F1B] p-3 sm:p-4 rounded-lg border border-[#666668]/20 sm:col-span-2">
           <p className="text-xs text-[#666668] uppercase font-medium mb-1">
             Session
           </p>
@@ -100,14 +99,6 @@ const ResultCard = ({ result }) => {
               : result.session.includes("FN")
               ? " (10-1 PM)"
               : ""}
-          </p>
-        </div>
-        <div className="bg-[#0C0F1B] p-3 sm:p-4 rounded-lg border border-[#666668]/20 sm:col-span-2">
-          <p className="text-xs text-[#666668] uppercase font-medium mb-1">
-            Venue
-          </p>
-          <p className="font-semibold text-white text-base sm:text-lg break-words">
-            {result.venue.toUpperCase()}
           </p>
         </div>
       </div>
