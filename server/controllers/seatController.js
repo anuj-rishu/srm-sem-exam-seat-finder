@@ -32,7 +32,7 @@ exports.getSeatDetails = async (req, res) => {
 
     return res.status(404).json({ 
       success: false, 
-      message: 'Register number not found in any venue/session for this date' 
+      message: 'Register number not found in any venue/session for this date or exam is in Biotech Block' 
     });
   } catch (error) {
     console.error('Error in getSeatDetails:', error);
