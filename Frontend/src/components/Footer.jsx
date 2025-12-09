@@ -107,10 +107,10 @@ const Footer = () => {
         </div>
 
         {!visitorStats.loading && (
-          <div className="mt-4 flex justify-center gap-4 text-xs md:text-sm text-[#666668]">
+          <div className="mt-4 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm md:text-base text-[#666668]">
             <div className="flex items-center">
               <svg
-                className="h-3.5 w-3.5 md:h-4 md:w-4 text-amber-400 mr-1.5"
+                className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-amber-400 mr-1.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -122,24 +122,25 @@ const Footer = () => {
                   d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
                 />
               </svg>
-              <span>
+              <span className="text-center sm:text-left">
                 <span className="font-medium">
                   {visitorStats.totalVisitors.toLocaleString()}
                 </span>{" "}
-                Total Visitors
+                <span className="whitespace-nowrap">Total Visitors</span>{" "}
+                <span className="text-[10px] sm:text-xs text-[#666668]/70">(from 15 May 2025)</span>
               </span>
             </div>
 
             <div className="flex items-center">
-              <span className="relative flex h-2.5 w-2.5 mr-1.5">
+              <span className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3 mr-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-green-500"></span>
               </span>
               <span>
                 <span className="font-medium">
                   {visitorStats.activeVisitors.toLocaleString()}
                 </span>{" "}
-                Online Now
+                <span className="whitespace-nowrap">Online Now</span>
               </span>
             </div>
           </div>
